@@ -41,15 +41,23 @@ Esta oficina foi criada para **calouros de faculdade** que estão começando sua
 ```
 oficinaBabyStepsIA/
 ├── README.md                  # Este arquivo
-├── temporario/
-│   ├── slides.md              # Slides da oficina (Marp)
-│   └── plano_oficina_faculdade.md  # Plano detalhado da oficina
-├── .agent/                    # Configuração para Antigravity (Google)
-│   ├── rules/                 # Regras de comportamento do agente
-│   ├── skills/                # Habilidades técnicas do agente
-│   └── workflows/             # Fluxos de trabalho automatizados
-└── .cursor/                   # Configuração para Cursor AI
-    └── rules/                 # Regras no formato .mdc
+├── slides.md                  # Slides da oficina (Marp)
+├── docs/                      # Documentação adicional
+├── images/                    # Imagens e assets
+├── temporario/                # Arquivos temporários e rascunhos
+├── .github/                   # 🐙 Configuração para GitHub Copilot (VS Code)
+│   ├── copilot-instructions.md  # Instrução global do Copilot
+│   ├── rules/                 # Regras de comportamento (.md)
+│   ├── skills/                # Habilidades especializadas (.md)
+│   └── iaflows/               # Workflows de IA do Copilot (.md)
+├── .agent/                    # ⚡ Configuração para Antigravity (Google Gemini)
+│   ├── rules/                 # Regras de comportamento (.md)
+│   ├── skills/                # Habilidades especializadas (.md)
+│   └── workflows/             # Fluxos de trabalho (.md)
+└── .cursor/                   # 🎯 Configuração para Cursor AI
+    ├── rules/                 # Regras de comportamento (.mdc)
+    ├── skills/                # Habilidades especializadas (.md)
+    └── workflows/             # Fluxos de trabalho (.md)
 ```
 
 ---
@@ -68,11 +76,52 @@ Para exportar em PDF:
 npx @marp-team/marp-cli temporario/slides.md --pdf
 ```
 
-### Configuração do Agente
-Este projeto está configurado para funcionar com dois assistentes de IA:
+### Configuração dos Agentes de IA
 
-- **Antigravity (Google)**: Lê automaticamente `.agent/rules/`, `.agent/skills/` e `.agent/workflows/`
-- **Cursor AI**: Lê automaticamente `.cursor/rules/*.mdc`
+Este projeto está configurado para funcionar com **dois assistentes de IA distintos**, cada um com sua própria pasta de configuração:
+
+---
+
+#### 🐙 `.github/copilot-instructions.md` — GitHub Copilot (VS Code)
+
+Usado pelo **GitHub Copilot** integrado ao VS Code.
+
+| Pasta/Arquivo | Descrição |
+|---|---|
+| `.github/copilot-instructions.md` | Instrução global: comportamento, idioma, contexto e orquestração |
+| `.github/rules/` | Regras de comportamento específicas (`.md`) |
+| `.github/skills/` | Habilidades especializadas (`.md`) |
+| `.github/iaflows/` | Workflows de IA do Copilot (`.md`) — separado do CI/CD |
+
+---
+
+#### ⚡ `.agent/` — Antigravity (Google Gemini / DeepMind)
+
+Usado pelo **Antigravity**, o assistente de IA da Google integrado via extensão própria.
+
+| Pasta | Descrição |
+|---|---|
+| `.agent/rules/` | Regras de comportamento em formato `.md` |
+| `.agent/skills/` | Habilidades especializadas (ex: analista, arquiteto, revisor) |
+| `.agent/workflows/` | Fluxos de trabalho com slash commands (ex: `/canonical-start`) |
+
+---
+
+#### 🎯 `.cursor/` — Cursor AI
+
+Usado pelo **Cursor**, o editor com IA integrada.
+
+| Pasta | Descrição |
+|---|---|
+| `.cursor/rules/` | Regras de comportamento em formato `.mdc` |
+| `.cursor/skills/` | Habilidades especializadas para o Cursor |
+| `.cursor/workflows/` | Processos e fluxos de trabalho para o Cursor |
+
+---
+
+> ⚠️ **Importante**: As pastas `.github/`, `.agent/` e `.cursor/` são **separadas intencionalmente**.
+> Cada ferramenta tem seu próprio formato, sintaxe e convenções.
+> Não misture arquivos entre elas — edite apenas a pasta correspondente ao assistente que está usando.
 
 ---
 

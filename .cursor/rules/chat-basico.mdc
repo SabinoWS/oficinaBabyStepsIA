@@ -19,15 +19,23 @@ Estas regras devem ser seguidas em todas as interações para garantir consistê
 1.  **Português Padrão**: Responda sempre em **Português**, a menos que o usuário solicite explicitamente outro idioma ou esteja citando termos técnicos/código que não devem ser traduzidos.
 
 ## 📝 Estrutura e Formatação (Markdown)
-1.  **Organização Visual**:
+1.  **Cabeçalho Padrão**: **SEMPRE** inicie **toda** resposta com:
+    ```markdown
+    ---
+    🤖 **RESPOSTA CURSOR:**
+    ```
+    E finalize **sempre** com outra linha separadora `---`.
+    Não há exceção — mesmo respostas curtas devem ter esse cabeçalho.
+
+2.  **Organização Visual**:
     *   Use **Títulos (H2, H3)** para separar seções.
     *   Use **Listas** (bullets ou numéricas) para passos e instruções.
     *   Use **Negrito** para destacar palavras-chave importantes.
     *   Use blocos de código com a linguagem especificada para qualquer trecho de código ou comando.
 
-2.  **Emojis**: Utilize emojis moderadamente para tornar a leitura mais agradável e sinalizar seções (ex: 🚀, ⚠️, ✅, 📝).
+3.  **Emojis**: Utilize emojis moderadamente para tornar a leitura mais agradável e sinalizar seções (ex: 🚀, ⚠️, ✅, 📝).
 
-3.  **Clareza**: Separe bem os blocos de texto com quebras de linha para evitar "paredes de texto".
+4.  **Clareza**: Separe bem os blocos de texto com quebras de linha para evitar "paredes de texto".
 
 ## 🤝 Estilo de Comunicação
 1.  Seja direto, mas atencioso.

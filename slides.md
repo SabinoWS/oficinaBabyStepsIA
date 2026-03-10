@@ -28,8 +28,10 @@ style: |
 # 💻 Programando com IA
 ## Como Desenvolvedores Trabalham Hoje
 
-### Wagner Sabino — Arquiteto de Software
+### Wagner Sabino
 📍 FADERGS • Sala 1004 • 10/03 às 19h
+
+🔗 [github.com/SabinoWS/oficinaBabyStepsIA](https://github.com/SabinoWS/oficinaBabyStepsIA)
 
 **#fazfadergs**
 
@@ -37,13 +39,28 @@ style: |
 
 <!-- class: default -->
 
-# 📅 O que vamos fazer hoje?
+# 📅 Agenda — 📚 Parte 1: Teoria
 
-1. **Conversa** — O que é IA, afinal? 🤔
-2. **De Chatbot a Agente** — A evolução 🤖 → 🦾
-3. **Demo ao vivo** — IA programando em tempo real 🔥
-4. **Mão na massa!** — Vocês criam algo com IA 🛠️
-5. **Reflexão** — O que muda com isso? 💬
+1. O que é IA? 🤔
+2. De Chatbot a Agente 🤖 → 🦾
+3. Configurando o Agente 🛠️
+4. Conceitos: Memória, SDD e MCP 🧠
+5. Demo ao vivo 🔥
+
+---
+
+# 📅 Agenda — 🛠️ Parte 2: Prática
+
+6. Projeto 1: Pokédex com PokéAPI 🎮
+7. Projeto 2: Painel Rick and Morty 👽
+8. Mostra dos resultados 💬
+
+---
+
+<!-- _class: lead -->
+
+# 📚 PARTE 1
+## Teoria & Conceitos
 
 ---
 
@@ -127,12 +144,163 @@ Vocês já usam IA **sem perceber**:
 
 <!-- _class: lead -->
 
-# A Ferramenta de Hoje
-## VS Code + GitHub Copilot
+# Configurando o Agente
+## Rules, Skills & Workflows
 
 ---
 
-# 🛠️ O que vamos usar?
+# 🧠 Por que configurar o Agente?
+
+**1. Eficiência de Contexto**
+Em vez de repetir todo dia o que você quer, isso vira uma **configuração permanente**.
+
+**2. Memória de Longo Prazo**
+O agente "lembrará" como operar no seu projeto via **Skills**, sem você colar documentação a cada prompt.
+
+**3. Comandos Naturais**
+Transforme prompts gigantes em pedidos simples.
+
+---
+
+# 📂 A Estrutura de um Agente
+
+A "bancada" do Agente é organizada em pastas:
+
+```
+.agent/
+ ├── rules/       # 🧠 Contexto e Diretrizes (O que saber?)
+ ├── skills/      # 🛠️ Ferramentas (Como fazer?)
+ └── workflows/   # 📋 Processos (O que fazer passo-a-passo?)
+```
+
+Se não está aqui, o agente **não sabe**.
+
+---
+
+# 📏 Rules (Regras)
+
+**O que são?**
+Diretrizes que governam o comportamento do agente. O "contexto sistêmico" que garante segurança e estilo.
+
+**Para que servem?**
+Para evitar que o agente tome ações indesejadas e forçar padrões de qualidade.
+
+> **Exemplo:**
+> `"Nunca altere arquivos de configuração (.env, docker-compose) sem pedir confirmação ao usuário."`
+
+---
+
+# 🛠️ Skills (Habilidades)
+
+**O que são?**
+Pacotes de conhecimento operacional. Uma Skill ensina ao agente **como** usar uma ferramenta ou executar um procedimento.
+
+**Para que servem?**
+Para expandir o "canivete suíço" do agente. Em vez de apenas gerar texto, ele se especializa.
+
+> **Exemplo — Skill: `git-ops`**
+> Ensina o agente a fazer `git checkout -b`, `git add`, `git commit` seguindo o padrão do time.
+
+---
+
+# 🔀 Workflows (Fluxos)
+
+**O que são?**
+Sequências orquestradas de tarefas. Um "roteiro" passo-a-passo que o agente segue.
+
+**Para que servem?**
+Para padronizar processos repetitivos e propensos a erro.
+
+> **Exemplo — Workflow: `deploy-production`**
+> 1. Identificar a tag de release.
+> 2. Preencher parâmetros de build.
+> 3. Submeter deploy e notificar o time.
+
+---
+
+<div style="background-color: #2a2a2a; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #ff5f5f; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+  <div style="color: #ff5f5f; font-weight: bold; font-size: 1.1em; margin-bottom: 8px;">❌ Antes (Verboso)</div>
+  <div style="color: #aaa; font-style: italic;">
+    "Por favor, faça o deploy, lembrando de rodar testes, verificar a tag, confirmar no chat, commit no padrão tal e depois push ..."
+  </div>
+</div>
+
+<div style="background-color: #1a2e33; padding: 20px; border-radius: 12px; border-left: 6px solid #4facfe; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+  <div style="color: #4facfe; font-weight: bold; font-size: 1.1em; margin-bottom: 8px;">✅ Depois (Natural)</div>
+  <div style="color: #fff; font-size: 1.4em; font-weight: bold;">
+    "Faça o deploy."
+  </div>
+</div>
+
+---
+
+<!-- _class: lead -->
+
+# Conceitos e Metodologias
+
+---
+
+# 🧠 Memória por Arquivo
+
+**A filosofia:**
+O chat é efêmero, volátil e não confiável para guardar decisões.
+
+- **Chat**: Apenas para pedir, ajustar e comandar.
+- **Arquivo (.md)**: A única fonte de verdade e persistência.
+
+Se você não escreveu no arquivo, para a IA, **não existe**.
+
+🔗 [github.com/OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files)
+
+> *Mantenha a documentação viva e o contexto salvo.*
+
+---
+
+# 📜 Spec Driven Development (SDD)
+
+**O problema do Chat:**
+Conversar "de boca" com a IA gera loops de erro e esquecimento de contexto.
+
+**A solução SDD:**
+1. Escreva o que você quer num arquivo Markdown (Spec).
+2. A IA lê a Spec.
+3. A IA implementa baseado na Spec (não na memória).
+
+> "O Markdown é a API de comunicação entre Humano e Agente."
+
+---
+
+# 📝 Exemplo Prático de SDD
+
+**1. O Humano escreve a Spec (`feature-login.md`):**
+
+```markdown
+# Funcionalidade de Login
+- O usuário deve logar com email e senha.
+- Se errar 3 vezes, bloquear por 15min.
+- Retornar erro 401 se credenciais inválidas.
+```
+
+**2. O Agente lê e Implementa:**
+O agente gera o código **exatamente** como definido no Markdown, sem inventar moda.
+
+---
+
+# 🔌 MCP: Model Context Protocol
+
+**Como conectar a IA ao mundo real?**
+O **MCP** é um padrão aberto que permite ao Agente atuar fora da IDE.
+
+- **Ler tickets no Jira** 🎫
+- **Consultar documentação no Confluence** 📚
+- **Acessar Banco de Dados** 🗄️
+- **Pesquisar na Web** 🌐
+
+É a ponte segura entre o "cérebro" da IA e os dados do mundo real.
+
+---
+
+# 🛠️ A Ferramenta de Hoje
 
 **VS Code** = O editor de código (onde você escreve)
 **GitHub Copilot** = O agente de IA que vive dentro do editor
@@ -152,19 +320,7 @@ Vocês já usam IA **sem perceber**:
 <!-- _class: lead -->
 
 # 🔥 Demo ao Vivo
-## Vamos ver a IA programando em tempo real!
-
----
-
-# 🧠 Os 3 Superpoderes
-
-Para a IA trabalhar bem, ela precisa de **3 coisas**:
-
-| # | Superpoder | O que significa |
-|---|---|---|
-| 🧠 | **Memória** | Se não tá escrito, a IA não sabe |
-| 🛠️ | **Habilidades** | Ensine a IA *como* fazer algo |
-| 📋 | **Receitas** | Dê um passo-a-passo que ela segue |
+## IA programando em tempo real!
 
 ---
 
@@ -180,7 +336,7 @@ Para a IA trabalhar bem, ela precisa de **3 coisas**:
 <div style="background-color: #1a2e33; padding: 20px; border-radius: 12px; border-left: 6px solid #4facfe;">
   <div style="color: #4facfe; font-weight: bold; font-size: 1.1em; margin-bottom: 8px;">✅ Pedido Claro</div>
   <div style="color: #fff; font-size: 1.1em;">
-    "Crie uma página web pessoal com tema escuro, com meu nome, uma bio curta, meus hobbies em cards, e animações suaves ao passar o mouse."
+    "Crie uma página web pessoal com tema escuro, com meu nome, uma bio curta, meus hobbies em cards, e animações suaves."
   </div>
 </div>
 
@@ -188,107 +344,167 @@ Para a IA trabalhar bem, ela precisa de **3 coisas**:
 
 ---
 
-# 📂 A dica de ouro: **escreva num arquivo**
+<!-- _class: lead -->
 
-Chat = conversa que **some** ☁️
-Arquivo = lembrança que **fica** 📄
+# 🔄 Fluxo de Trabalho Real
+## Como equipes de verdade desenvolvem software
 
-<div style="background-color: #1a2e33; padding: 20px; border-radius: 12px; margin-top: 20px; border-left: 6px solid #4facfe;">
-  <div style="color: #4facfe; font-weight: bold; margin-bottom: 8px;">💡 Como fazer?</div>
+---
+
+# 🔄 O Pipeline Completo
+
+No mundo real, software não nasce de um pedido direto. Passa por **etapas e responsáveis**:
+
+**🏢 Negócio** → **🕵️ Analista** → **🏛️ Arquiteto** → **⚙️ Engenheiro** → **💻 Desenvolvedor**
+
+Cada papel tem:
+- 📥 Uma **entrada** (o que recebe)
+- 🧠 Um **trabalho** (o que faz)
+- 📤 Uma **saída** (o que entrega para o próximo)
+
+> Nem sempre todos são necessários — depende do projeto.
+
+---
+
+# 🔄 Exemplo Prático
+
+Imagine que a faculdade pede um **sistema de matrícula**:
+
+| Quem | O que faz | Entrega |
+|---|---|---|
+| 🕵️ **Analista** | Entende o pedido do cliente | Requisitos e regras de negócio |
+| ⚙️ **Engenheiro** | Planeja como construir | Tasks técnicas detalhadas |
+| 💻 **Desenvolvedor** | Codifica a solução | Código pronto (commits/PRs) |
+
+O artefato de um **vira a entrada do próximo**.
+
+---
+
+# 🤖 Onde a IA entra nesse fluxo?
+
+A IA bem configurada pode ajudar em **cada etapa**:
+
+- 🕵️ **Analista** → IA organiza anotações e gera requisitos estruturados
+- ⚙️ **Engenheiro** → IA analisa o código e sugere tasks com estimativa de esforço
+- 💻 **Desenvolvedor** → IA implementa código seguindo as tasks
+
+<div style="background-color: #1a2e33; padding: 15px; border-radius: 12px; margin-top: 15px; border-left: 6px solid #4facfe;">
   <div style="color: #fff;">
-    Crie um arquivo <code>sobre_mim.md</code> com suas infos.<br>
-    Peça pra IA <strong>ler o arquivo</strong> e usar como base!
+    💡 A IA <strong>propõe</strong>, o humano <strong>aprova</strong>.<br>
+    Quanto melhor o contexto (Rules, Skills, Specs), melhor o resultado.
   </div>
 </div>
-
-> A IA lê o arquivo e sabe exatamente o que fazer.
 
 ---
 
 <!-- _class: lead -->
 
-# 🛠️ Mão na Massa!
-## Hora de vocês criarem!
+# 🛠️ PARTE 2
+## Prática — Mão na Massa!
 
 ---
 
-# 🎯 O Desafio
+<!-- _class: lead -->
 
-## Crie sua **página pessoal** com ajuda da IA!
-
-**Regras:**
-1. Abram o VS Code com Copilot
-2. Peçam para a IA criar uma página web sobre vocês
-3. **4 Rodadas** de evolução:
-
-| Rodada | O que fazer |
-|---|---|
-| 🥉 | Pedir de qualquer jeito — ver o que sai |
-| 🥈 | Melhorar o pedido — adicionar detalhes |
-| 🥇 | Criar um arquivo `.md` com suas infos e pedir pra IA ler |
-| 🏆 | Bônus: animações, tema escuro, efeitos! |
+# 🎮 Projeto 1
+## Pokédex com PokéAPI
 
 ---
 
-# 📝 Rodada 1 — Peça de qualquer jeito
+# 🎮 Pokédex — O Desafio
 
-Abram o chat do Copilot e digitem algo como:
+Criar uma **Pokédex interativa** que consulta a [PokéAPI](https://pokeapi.co/)!
 
-```
-Crie uma página web sobre mim
-```
+**O que a página deve ter:**
+- 🔍 Campo de busca por nome ou número
+- 🖼️ Imagem do Pokémon
+- 📊 Stats (HP, Ataque, Defesa...)
+- 🎨 Cores baseadas no tipo (fogo = vermelho, água = azul...)
 
-**Observem o resultado.**
-- Ficou genérico?
-- Faltou personalidade?
-- **Normal!** A IA não sabe nada sobre você (ainda).
-
----
-
-# ✨ Rodada 2 — Melhore o pedido
-
-Agora, adicionem **detalhes**:
-
-```
-Crie uma página web pessoal para [seu nome].
-Eu curso [seu curso] na faculdade.
-Meus hobbies são: [lista].
-Quero tema escuro com cores vibrantes.
-Adicione uma seção "Sobre mim" e uma seção "Hobbies".
-```
-
-**Comparem** com a Rodada 1. Melhor, né? 🎉
+**API gratuita, sem cadastro:** `https://pokeapi.co/api/v2/pokemon/{nome}`
 
 ---
 
-# 📄 Rodada 3 — Use um arquivo!
+# 🎮 Pokédex — Passo a passo
 
-1. Criem um arquivo chamado `sobre_mim.md`:
-
-```markdown
-# Minhas Informações
-- Nome: Maria Silva
-- Curso: Ciência da Computação
-- Semestre: 1º
-- Hobbies: desenhar, jogar, cozinhar
-- Cor favorita: roxo
-- Frase que me define: "Sempre curiosa"
+**Rodada 1** — Peçam para a IA:
+```
+Crie uma Pokédex web que busca pokémons na PokéAPI.
+Mostre a imagem, nome, número e tipos.
 ```
 
-2. Peçam no chat: **"Leia o arquivo sobre_mim.md e crie uma página web bonita com essas informações"**
+**Rodada 2** — Melhorem:
+```
+Adicione as stats do pokémon em barras de progresso.
+Use cores diferentes para cada tipo.
+Adicione tema escuro.
+```
+
+**Rodada 3** — Criem um arquivo `spec.md` com os requisitos!
 
 ---
 
-# 🏆 Rodada Bônus — Surpreenda!
+# 🎮 Pokédex — Dicas
 
-Peçam mais:
-- 🌙 _"Adicione modo escuro com toggle claro/escuro"_
-- ✨ _"Adicione animações quando passar o mouse"_
-- 📊 _"Crie uma barra de progresso para minhas habilidades"_
-- 🎨 _"Use gradiente de roxo para azul no fundo"_
-- 📱 _"Faça funcionar no celular também"_
+- **Endpoint de imagem**: A PokéAPI retorna sprites no JSON
+- **Tipos com cores**: Fire 🔴, Water 🔵, Grass 🟢, Electric 🟡
+- **Testem com**: Pikachu, Charizard, Bulbasaur, Mewtwo
+- **Desafio bônus**: Listar os primeiros 20 pokémons automaticamente
 
-**Divirtam-se! Experimentem! Não tem erro!**
+> A API é gratuita e não precisa de cadastro!
+
+---
+
+<!-- _class: lead -->
+
+# 👽 Projeto 2
+## Painel Rick and Morty
+
+---
+
+# 👽 Rick and Morty — O Desafio
+
+Criar um **painel de personagens** usando a [Rick and Morty API](https://rickandmortyapi.com/)!
+
+**O que a página deve ter:**
+- 📋 Lista de personagens com foto e nome
+- 🟢🔴 Status: Alive, Dead ou Unknown
+- 🌍 Localização e espécie
+- 🔍 Filtro por nome ou status
+
+**API gratuita, sem cadastro:** `https://rickandmortyapi.com/api/character`
+
+---
+
+# 👽 Rick and Morty — Passo a passo
+
+**Rodada 1** — Peçam para a IA:
+```
+Crie uma página web que lista os personagens de
+Rick and Morty usando a API rickandmortyapi.com.
+Mostre foto, nome e status de cada um.
+```
+
+**Rodada 2** — Melhorem:
+```
+Adicione cards estilizados com tema escuro.
+O status "Alive" deve ter um ícone verde,
+"Dead" vermelho e "Unknown" cinza.
+Adicione paginação.
+```
+
+**Rodada 3** — Criem um `spec.md` com todos os requisitos!
+
+---
+
+# 👽 Rick and Morty — Dicas
+
+- **Paginação**: A API retorna 20 por página com `?page=2`
+- **Filtros**: `?name=rick&status=alive`
+- **Imagens**: Já vem no campo `image` do JSON
+- **Desafio bônus**: Adicionar página de detalhes ao clicar
+
+> Combinem com o que aprenderam sobre **pedir bem** e **Spec por arquivo**!
 
 ---
 
@@ -309,27 +525,6 @@ Peçam mais:
     ✅ Errar faz parte — a IA erra, você corrige, e <strong>juntos</strong> chegam lá
   </div>
 </div>
-
----
-
-# 🔮 O Futuro do Trabalho
-
-No dia a dia de profissionais de tecnologia, agentes de IA já:
-
-- 📋 **Leem tickets** do Jira e planejam tarefas
-- 💻 **Escrevem código** seguindo padrões da empresa
-- 🧪 **Rodam testes** e corrigem bugs automaticamente
-- 📊 **Geram relatórios** e documentação
-- 🚀 **Fazem deploy** seguindo receitas configuradas
-
-> O que vocês fizeram hoje é o **primeiro passo**.
-> Daqui a pouco, agentes de IA vão ser tão comuns quanto planilhas.
-
----
-
-<!-- _class: lead -->
-
-# 🚀 Próximos Passos
 
 ---
 
@@ -355,7 +550,7 @@ No dia a dia de profissionais de tecnologia, agentes de IA já:
 
 # 🙏 Obrigado!
 
-### Wagner Sabino — Arquiteto de Software
+### Wagner Sabino
 
 💬 Perguntas? Dúvidas? Ideias?
 

@@ -1,4 +1,5 @@
 ---
+trigger: always_on
 description: Regras fundamentais para interação no chat, focando em segurança, idioma e formatação.
 ---
 
@@ -17,12 +18,13 @@ Estas regras devem ser seguidas em todas as interações para garantir consistê
 1.  **Português Padrão**: Responda sempre em **Português**, a menos que o usuário solicite explicitamente outro idioma ou esteja citando termos técnicos/código que não devem ser traduzidos.
 
 ## 📝 Estrutura e Formatação (Markdown)
-1.  **Cabeçalho Padrão**: Inicie a resposta principal com:
+1.  **Cabeçalho Padrão**: **SEMPRE** inicie **toda** resposta com:
     ```markdown
-    *RESPOSTA:*
     ---
+    🤖 **RESPOSTA ANTIGRAVITY:**
     ```
-    E finalize com outra linha separadora `---`.
+    E finalize **sempre** com outra linha separadora `---`.
+    Não há exceção — mesmo respostas curtas devem ter esse cabeçalho.
 
 2.  **Organização Visual**:
     *   Use **Títulos (H2, H3)** para separar seções.

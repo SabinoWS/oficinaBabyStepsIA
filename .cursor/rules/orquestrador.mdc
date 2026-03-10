@@ -1,0 +1,80 @@
+---
+description: Orquestrador de Rules e Workflows — define quando e como usar cada um
+alwaysApply: true
+---
+
+# 🎯 Orquestrador de Rules e Workflows
+
+## O que é esse arquivo?
+
+Esta rule define **como o agente deve se comportar** diante de qualquer solicitação do usuário.
+Ela determina **quando usar uma Rule**, **quando disparar um Workflow** e **quando agir livremente**.
+
+---
+
+## 📋 Hierarquia de Decisão
+
+Ao receber uma solicitação, o agente deve seguir esta ordem de decisão:
+
+### 1. 🔍 Verificar Rules Existentes
+Antes de qualquer ação, verifique se existe uma **rule (`.cursor/rules/*.mdc`)** que se aplica ao contexto atual.
+
+- **Quando uma Rule se aplica?**
+  - A solicitação envolve **padrão de comportamento contínuo** (ex: "como sempre responder", "formato de resposta", "idioma").
+  - A tarefa é **recorrente e estrutural** (ex: estilo de código, organização de arquivos, tom de comunicação).
+  - A rule define **como o agente DEVE se comportar** — é uma restrição ou diretriz de conduta.
+
+- **Ação**: Leia a rule correspondente e aplique suas diretrizes **como base** para a resposta.
+
+---
+
+### 2. ⚙️ Verificar Workflows Disponíveis
+Se o usuário pedir para **executar um processo específico** (ex: "rodar o git-submit", "iniciar o canonical", "criar slides"), verifique se existe um **workflow em `.cursor/workflows/`**.
+
+- **Quando um Workflow se aplica?**
+  - O usuário usa um **slash command** como `/git-submit`, `/canonical-start`, `/gerador-de-slides`.
+  - O usuário descreve uma **sequência de ações** com início, meio e fim (ex: "faça o commit e push", "gere os slides a partir do conteúdo").
+  - A tarefa é **processual e executável** — o workflow define **COMO fazer**, passo a passo.
+
+- **Ação**: Leia o arquivo do workflow correspondente e execute os passos definidos, **em ordem**, pedindo confirmação quando necessário.
+
+---
+
+### 3. 🧠 Ação Livre (sem rule nem workflow)
+Se nenhuma rule ou workflow se aplica, o agente deve agir com bom senso, utilizando:
+
+- As regras gerais de `chat-basico.mdc` como base de comportamento.
+- Conhecimento técnico e contexto do workspace.
+
+---
+
+## 📂 Onde ficam cada coisa?
+
+| Tipo       | Pasta                  | Extensão | Propósito                              |
+|------------|------------------------|----------|----------------------------------------|
+| **Rule**   | `.cursor/rules/`       | `.mdc`   | Define comportamento e padrões         |
+| **Workflow** | `.cursor/workflows/` | `.md`    | Define processos e sequências de ações |
+| **Skill**  | `.cursor/skills/`      | `.md`    | Define capacidades especializadas      |
+
+---
+
+## ⚡ Exemplos Práticos
+
+| Solicitação do Usuário                        | O que fazer                              |
+|-----------------------------------------------|------------------------------------------|
+| "Responda sempre em português"                | → Verificar/criar **Rule**              |
+| "/git-submit"                                 | → Disparar **Workflow** `git-submit.md` |
+| "Crie uma skill para revisão de código"       | → Criar arquivo em `.cursor/skills/`   |
+| "Qual é a estrutura do projeto?"              | → Resposta livre baseada em `chat-basico` |
+| "Sempre use emojis nas respostas"             | → Verificar/criar **Rule**              |
+| "/canonical-start"                            | → Disparar **Workflow** `canonical-start.md` |
+
+---
+
+## 🚨 Regras Fundamentais
+
+1. **Rules primeiro**: Sempre verifique se uma rule se aplica antes de agir.
+2. **Workflows são processos**: Não improvise um workflow — leia e siga os passos definidos.
+3. **Não misture**: Uma rule define *comportamento*; um workflow define *execução*.
+4. **Peça confirmação**: Antes de executar ações destrutivas em qualquer workflow, sempre peça confirmação explícita.
+5. **Skills são capacidades**: Use skills para tarefas especializadas que exigem expertise específica.

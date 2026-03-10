@@ -1,7 +1,5 @@
 ---
 description: Contexto geral do projeto da Oficina de IA na FADERGS e ferramentas utilizadas.
-globs:
-alwaysApply: true
 ---
 
 # 🏢 Contexto do Workspace: Oficina Baby Steps com IA
@@ -20,7 +18,7 @@ Criar um ambiente de aprendizado focado em:
 ### 📊 Marp (Markdown Presentation Ecosystem)
 Estamos utilizando o **Marp** para criar apresentações de slides diretamente a partir de arquivos Markdown.
 - **Arquivo Principal**: `slides.md` (na raiz do projeto).
-- **Skill Disponível**: Consulte `.cursor/skills/marp-slides-creator.md` para ver como criar e estilizar slides.
+- **Skill Disponível**: Consulte `.github/skills/marp-slides-creator.md` para ver como criar e estilizar slides.
 - **Uso**: O Marp permite converter markdown simples em slides visuais com temas (Gaia, Default, Uncover) e personalizações CSS.
 
 ### 💻 Stack da Demo ao Vivo
@@ -28,7 +26,7 @@ Estamos utilizando o **Marp** para criar apresentações de slides diretamente a
 - Sem frameworks — foco na didática e simplicidade
 
 ## 📂 Estrutura Importante
-- **.cursor/**: Configurações do agente Cursor AI (este contexto).
-- **.agent/**: Configurações do agente Antigravity (Google Gemini).
 - **.github/**: Configurações do agente GitHub Copilot.
+- **.agent/**: Configurações do agente Antigravity (Google Gemini).
+- **.cursor/**: Configurações do agente Cursor AI.
 - **slides.md**: Apresentação principal da oficina.
