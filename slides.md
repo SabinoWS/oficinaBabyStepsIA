@@ -37,13 +37,32 @@ style: |
 
 ---
 
+<!-- _class: lead -->
+
+# 👋 Quem sou eu?
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; margin-top: 20px;">
+  <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #4facfe, #00f2fe); display: flex; align-items: center; justify-content: center; font-size: 3em;">
+    🧑‍💻
+  </div>
+  <div style="background-color: #1a2e33; padding: 24px 40px; border-radius: 16px; border-left: 6px solid #4facfe; text-align: left; min-width: 500px;">
+    <div style="color: #fff; font-size: 1.3em; line-height: 2;">
+      💼 &nbsp;<span style="color: #4facfe;">Atuação</span><br>
+      🎓 &nbsp;<span style="color: #4facfe;">Formação</span><br>
+      ❤️ &nbsp;<span style="color: #4facfe;">O que me apaixona</span>
+    </div>
+  </div>
+</div>
+
+---
+
 <!-- class: default -->
 
 # 📅 Agenda — 📚 Parte 1: Teoria
 
 1. O que é IA? 🤔
 2. De Chatbot a Agente 🤖 → 🦾
-3. Configurando o Agente 🛠️
+3. Configurando o Agente 🛠️ *(rules, skills e workflows)*
 4. Conceitos: Memória, SDD e MCP 🧠
 5. Demo ao vivo 🔥
 
@@ -51,9 +70,10 @@ style: |
 
 # 📅 Agenda — 🛠️ Parte 2: Prática
 
-6. Projeto 1: Pokédex com PokéAPI 🎮
-7. Projeto 2: Painel Rick and Morty 👽
+6. Projeto 1: Painel Rick and Morty 👽
+7. Projeto 2: Pokédex com PokéAPI 🎮
 8. Mostra dos resultados 💬
+9. Reflexões e mais conversas 🧠
 
 ---
 
@@ -212,9 +232,8 @@ Sequências orquestradas de tarefas. Um "roteiro" passo-a-passo que o agente seg
 Para padronizar processos repetitivos e propensos a erro.
 
 > **Exemplo — Workflow: `deploy-production`**
-> 1. Identificar a tag de release.
-> 2. Preencher parâmetros de build.
-> 3. Submeter deploy e notificar o time.
+> 1. Identificar a tag de release e preencher parâmetros de build.
+> 2. Submeter deploy e notificar o time.
 
 ---
 
@@ -353,16 +372,14 @@ O **MCP** é um padrão aberto que permite ao Agente atuar fora da IDE.
 
 # 🔄 O Pipeline Completo
 
-No mundo real, software não nasce de um pedido direto. Passa por **etapas e responsáveis**:
+Software não nasce de um pedido direto. Passa por **etapas e responsáveis**:
 
-**🏢 Negócio** → **🕵️ Analista** → **🏛️ Arquiteto** → **⚙️ Engenheiro** → **💻 Desenvolvedor**
+**🏢 Negócio** → **🕵️ Analista** → **🏛️ Arquiteto** → **⚙️ Engenheiro** → **💻 Dev**
 
 Cada papel tem:
 - 📥 Uma **entrada** (o que recebe)
 - 🧠 Um **trabalho** (o que faz)
 - 📤 Uma **saída** (o que entrega para o próximo)
-
-> Nem sempre todos são necessários — depende do projeto.
 
 ---
 
@@ -372,11 +389,9 @@ Imagine que a faculdade pede um **sistema de matrícula**:
 
 | Quem | O que faz | Entrega |
 |---|---|---|
-| 🕵️ **Analista** | Entende o pedido do cliente | Requisitos e regras de negócio |
-| ⚙️ **Engenheiro** | Planeja como construir | Tasks técnicas detalhadas |
-| 💻 **Desenvolvedor** | Codifica a solução | Código pronto (commits/PRs) |
-
-O artefato de um **vira a entrada do próximo**.
+| 🕵️ **Analista** | Entende o pedido | Requisitos de negócio |
+| ⚙️ **Engenheiro** | Planeja a construção | Tasks técnicas |
+| 💻 **Dev** | Codifica a solução | Código (commits/PRs) |
 
 ---
 
@@ -406,58 +421,7 @@ A IA bem configurada pode ajudar em **cada etapa**:
 
 <!-- _class: lead -->
 
-# 🎮 Projeto 1
-## Pokédex com PokéAPI
-
----
-
-# 🎮 Pokédex — O Desafio
-
-Criar uma **Pokédex interativa** que consulta a [PokéAPI](https://pokeapi.co/)!
-
-**O que a página deve ter:**
-- 🔍 Campo de busca por nome ou número
-- 🖼️ Imagem do Pokémon
-- 📊 Stats (HP, Ataque, Defesa...)
-- 🎨 Cores baseadas no tipo (fogo = vermelho, água = azul...)
-
-**API gratuita, sem cadastro:** `https://pokeapi.co/api/v2/pokemon/{nome}`
-
----
-
-# 🎮 Pokédex — Passo a passo
-
-**Rodada 1** — Peçam para a IA:
-```
-Crie uma Pokédex web que busca pokémons na PokéAPI.
-Mostre a imagem, nome, número e tipos.
-```
-
-**Rodada 2** — Melhorem:
-```
-Adicione as stats do pokémon em barras de progresso.
-Use cores diferentes para cada tipo.
-Adicione tema escuro.
-```
-
-**Rodada 3** — Criem um arquivo `spec.md` com os requisitos!
-
----
-
-# 🎮 Pokédex — Dicas
-
-- **Endpoint de imagem**: A PokéAPI retorna sprites no JSON
-- **Tipos com cores**: Fire 🔴, Water 🔵, Grass 🟢, Electric 🟡
-- **Testem com**: Pikachu, Charizard, Bulbasaur, Mewtwo
-- **Desafio bônus**: Listar os primeiros 20 pokémons automaticamente
-
-> A API é gratuita e não precisa de cadastro!
-
----
-
-<!-- _class: lead -->
-
-# 👽 Projeto 2
+# 👽 Projeto 1
 ## Painel Rick and Morty
 
 ---
@@ -505,6 +469,57 @@ Adicione paginação.
 - **Desafio bônus**: Adicionar página de detalhes ao clicar
 
 > Combinem com o que aprenderam sobre **pedir bem** e **Spec por arquivo**!
+
+---
+
+<!-- _class: lead -->
+
+# 🎮 Projeto 2
+## Pokédex com PokéAPI
+
+---
+
+# 🎮 Pokédex — O Desafio
+
+Criar uma **Pokédex interativa** que consulta a [PokéAPI](https://pokeapi.co/)!
+
+**O que a página deve ter:**
+- 🔍 Campo de busca por nome ou número
+- 🖼️ Imagem do Pokémon
+- 📊 Stats (HP, Ataque, Defesa...)
+- 🎨 Cores baseadas no tipo (fogo = vermelho, água = azul...)
+
+**API gratuita, sem cadastro:** `https://pokeapi.co/api/v2/pokemon/{nome}`
+
+---
+
+# 🎮 Pokédex — Passo a passo
+
+**Rodada 1** — Peçam para a IA:
+```
+Crie uma Pokédex web que busca pokémons na PokéAPI.
+Mostre a imagem, nome, número e tipos.
+```
+
+**Rodada 2** — Melhorem:
+```
+Adicione as stats do pokémon em barras de progresso.
+Use cores diferentes para cada tipo.
+Adicione tema escuro.
+```
+
+**Rodada 3** — Criem um arquivo `spec.md` com os requisitos!
+
+---
+
+# 🎮 Pokédex — Dicas
+
+- **Endpoint de imagem**: A PokéAPI retorna sprites no JSON
+- **Tipos com cores**: Fire 🔴, Water 🔵, Grass 🟢, Electric 🟡
+- **Testem com**: Pikachu, Charizard, Bulbasaur, Mewtwo
+- **Desafio bônus**: Listar os primeiros 20 pokémons automaticamente
+
+> A API é gratuita e não precisa de cadastro!
 
 ---
 
