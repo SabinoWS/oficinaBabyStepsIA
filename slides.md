@@ -39,6 +39,25 @@ style: |
 
 <!-- _class: lead -->
 
+# 📁 Anotações & Desenhos
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; margin-top: 20px;">
+  <div style="font-size: 1.1em; color: #ccc; text-align: center;">
+    Anotações e rascunhos durante a apresentação
+  </div>
+  <a href="https://drive.google.com/drive/folders/1bSUgKc0FPFrnUP324g4RC0Bt8Y-7J36d" target="_blank"
+     style="display: inline-block; background: linear-gradient(135deg, #4facfe, #00f2fe); color: #111; font-weight: bold; font-size: 1.3em; padding: 18px 40px; border-radius: 14px; text-decoration: none; box-shadow: 0 4px 20px rgba(79,172,254,0.4);">
+    📂 Abrir Pasta no Google Drive
+  </a>
+  <div style="color: #666; font-size: 0.85em;">
+    drive.google.com
+  </div>
+</div>
+
+---
+
+<!-- _class: lead -->
+
 # 👋 Quem sou eu?
 
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; margin-top: 20px;">
@@ -64,7 +83,6 @@ style: |
 2. De Chatbot a Agente 🤖 → 🦾
 3. Configurando o Agente 🛠️ *(rules, skills e workflows)*
 4. Conceitos: Memória, SDD e MCP 🧠
-5. Demo ao vivo 🔥
 
 ---
 
@@ -72,7 +90,6 @@ style: |
 
 6. Projeto 1: Painel Rick and Morty 👽
 7. Projeto 2: Pokédex com PokéAPI 🎮
-8. Mostra dos resultados 💬
 9. Reflexões e mais conversas 🧠
 
 ---
@@ -86,7 +103,7 @@ style: |
 
 # 🤔 Pra começar
 
-## Onde e quando vocês já utilizaram IA?
+## Entender o momento
 
 <div style="background-color: #1a2e33; padding: 30px; border-radius: 16px; margin-top: 20px; border-left: 6px solid #4facfe; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
   <div style="font-size: 1.3em; color: #fff;">
@@ -139,27 +156,7 @@ Vocês já usam IA **sem perceber**:
 - **Lembra** do contexto enquanto trabalha
 
 > Exemplo: GitHub Copilot no VS Code
-
----
-
-# 🚗 Uma analogia simples
-
-<div style="background-color: #2a2a2a; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid #ff5f5f;">
-  <div style="color: #ff5f5f; font-weight: bold; margin-bottom: 8px;">💬 Chatbot = GPS de voz</div>
-  <div style="color: #aaa;">
-    Só responde quando você pergunta.<br>
-    "Vire à direita em 200 metros."
-  </div>
-</div>
-
-<div style="background-color: #1a2e33; padding: 20px; border-radius: 12px; border-left: 6px solid #4facfe;">
-  <div style="color: #4facfe; font-weight: bold; margin-bottom: 8px;">🦾 Agente = Copiloto</div>
-  <div style="color: #fff;">
-    Olha o mapa, sugere rotas, já liga o pisca pra você.<br>
-    <strong>"Tem um acidente na frente, já mudei a rota."</strong>
-  </div>
-</div>
-
+> Produto VS Construção de produto
 ---
 
 <!-- _class: lead -->
